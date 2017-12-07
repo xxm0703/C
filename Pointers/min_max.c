@@ -28,6 +28,8 @@ void find_replace(int *arr, int size, int find, int replace){
 	} 
 }
 void min_max(int *arr, int size, int *min, int *max){
+	*max = arr[0];
+	*min = arr[0];
 	for(int i = 0; i < size; ++i){
 		if(*min > arr[i]) *min = arr[i];
 		else if(*max < arr[i]) *max = arr[i];
