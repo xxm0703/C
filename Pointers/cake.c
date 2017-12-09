@@ -8,13 +8,12 @@ typedef struct cake_t{
 
 void print_cake(cake*);
 void add_icing(cake *);
-void for_each_cake(cake**, int, void(*add)(cake*));
+void for_each_cake(cake*, int, void(*add)(cake*));
 
 int main(){
-	cake *torti[5];
+	cake torti[5];
 	for(int i = 0; i < 5; ++i){
-		torti[i] = malloc(sizeof(cake));
-		scanf("%d %f", &torti[i]->icing, &torti[i]->kcal);
+		scanf("%d %f", &torti[i].icing, &torti[i].kcal);
 	}
 	for_each_cake(torti, 5, print_cake);
 	for_each_cake(torti, 5, add_icing);
@@ -34,8 +33,8 @@ void print_cake(cake* torti){
 	printf("kcal: %.2f icing:%d\n", c->kcal, c->icing);
 }
 
-void for_each_cake(cake** torti, int size, void(*add)(cake*)){
+void for_each_cake(cake* torti, int size, void(*add)(cake*)){
 	for(int i = 0; i < size; ++i){
-		add(torti[i]);
+		add(&torti[i]);
 	}
 }
