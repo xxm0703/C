@@ -10,10 +10,13 @@ int main(int argc, char **argv){
 	right = n - 1;
 	assert(n == argc-2);
 	int bottles[n];
+	int better;
 	for(int i = 0; i < n; ++i) bottles[i] = atoi(argv[i+2]);
-	for(int k = 1; k <= n; ++k){
-		if(bottles[right] < bottles[left]) sum += bottles[right--] * k;
-		else sum += bottles[left++] * k;
+	for(int year = 1; year <= n; ++year){
+		if(bottles[right] < bottles[left]) better = right--;
+		else better = left++;
+		sum += bottles[better] * year;
+		printf("Selling bottle %d for %d\n", better, bottles[better] * year);
 	}
 	printf("Money: %d\n", sum);
 	return 0;
