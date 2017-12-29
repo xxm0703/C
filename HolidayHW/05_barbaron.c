@@ -32,7 +32,7 @@ int main(){
 	add_barbaron(&shop, tmp);
 	printf("After adding new barbaron:\n");
 	print_barbaron_shop(shop);
-	printf("Buying barbaron P of size M with 43 coins:\n");
+	printf("Buying barbaron with 43 coins:\n");
 	int money = 43;
 	print_barbaron(buy_barbaron(&shop, 'P', 'M', &money));
 	printf("Coins left => %d\n", money);

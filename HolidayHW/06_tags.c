@@ -16,17 +16,8 @@ int main(){
 	tag_t html = {"html", 0, NULL};
 	print_markup(body);
 	print_markup(html);
-	add_child(&html, "br", 1);
-	print_markup(html);
 	return 0;
 }
-
-void add_child(tag_t *parent, char name[15], int is_self_closing){
-	strcpy(parent->child->name, name);	
-	parent->child->self_closing = is_self_closing;
-	parent->child->child = NULL;
-}
-
 
 void print_markup(tag_t object){
 	char str[100];
