@@ -16,6 +16,9 @@ int main(){
 	tag_t html = {"html", 0, NULL};
 	print_markup(body);
 	print_markup(html);
+	printf("Adding 'body' as a child to 'html'\n");
+	html.child = &body;
+	print_markup(html);
 	return 0;
 }
 
