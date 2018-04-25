@@ -10,7 +10,7 @@ typedef struct list_t{
 	node_t *head;
 } list_t;
 
-list_t init_list(int);
+list_t init_list();
 void destroy(list_t *);
 int size(list_t);
 int empty(list_t);

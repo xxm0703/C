@@ -1,11 +1,9 @@
 #include"list.h"
 #include<stdlib.h>
 
-list_t init_list(int value){
+list_t init_list(){
 	list_t l;
-	l.head = malloc(sizeof(node_t));
-	l.head->value = value; 
-	l.head->next = NULL;
+	l.head = NULL;
 	return l;
 }
 
@@ -19,8 +17,8 @@ void destroy(list_t *l){
 }
 
 int size(list_t l){
-	int count = 1;
-	while(l.head->next){
+	int count = 0;
+	while(l.head){
 		l.head = l.head->next;
 		count++;
 	}
@@ -32,13 +30,17 @@ int empty(list_t l){
 }
 
 list_t copy(list_t l){
-	list_t new_list = init_list(l.head->value);
+	list_t new_list = init_list();
+	if(!l.head) return new_list;
+	new_list.head = malloc(sizeof(node_t));
+	new_list.head->value = l.head->value;
 	node_t *tmp = new_list.head;
-	while(l.head->next){
+	l.head = l.head->next;
+	while(l.head){
 		tmp->next = malloc(sizeof(node_t));
 		tmp = tmp->next;
-		l.head = l.head->next;
 		tmp->value = l.head->value;
+		l.head = l.head->next;
 	}
 	tmp->next = NULL;
 	return new_list;

@@ -2,7 +2,8 @@
 #include<stdio.h>
 
 int main(){
-	list_t l = init_list(8);
+	list_t l = init_list();
+	insert_first(&l, 8);
 	insert_first(&l, 3);
 	insert_after(&l, 4, 0);
 	list_t l2 = copy(l);
