@@ -10,16 +10,16 @@ typedef struct list_t{
 	node_t *head;
 } list_t;
 
-extern list_t init_list(int);
-extern void destroy(list_t *);
-extern int size(list_t);
-extern int empty(list_t);
-extern list_t copy(list_t);
-extern void insert_first(list_t *, int);
-extern void remove_first(list_t *);
-extern void insert_after(list_t *, int, int);
-extern void remove_after(list_t *, int);
-extern int get(list_t, int);
+list_t init_list(int);
+void destroy(list_t *);
+int size(list_t);
+int empty(list_t);
+list_t copy(list_t);
+void insert_first(list_t *, int);
+void remove_first(list_t *);
+void insert_after(list_t *, int, int);
+void remove_after(list_t *, int);
+int get(list_t, int);
 
 
 #endif
