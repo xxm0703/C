@@ -30,14 +30,14 @@ list_t copy(list_t l){
 
 }
 
-void insert(list_t *l, int value){
+void insert_first(list_t *l, int value){
 	node_t *node = malloc(sizeof(node_t));
 	node->value = value;
 	node->next = l->head;
 	l->head = node;
 }
 
-void remove(list_t *l){
+void remove_first(list_t *l){
 	node_t *node = l->head;
 	l->head = l->head->next;
 	free(node);
