@@ -1,5 +1,5 @@
 #include"list.h"
-#include"stdio.h"
+#include<stdio.h>
 
 int main(){
 	list_t l = init_list(8);
