@@ -46,6 +46,21 @@ list_t copy(list_t l){
 	return new_list;
 }
 
+void reverse(list_t *l){
+	node_t *tmp, *helper = l->head;
+	
+	l->head = l->head->next;
+	helper->next = NULL;
+	
+	while(l->head){
+		tmp = helper;
+		helper = l->head;
+		l->head = l->head->next;
+		helper->next = tmp;
+	}
+	l->head = helper;
+}
+
 void insert_first(list_t *l, int value){
 	node_t *node = malloc(sizeof(node_t));
 	node->value = value;

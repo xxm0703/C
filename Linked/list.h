@@ -12,6 +12,7 @@ typedef struct list_t{
 
 list_t init_list();
 void destroy(list_t *);
+void reverse(list_t *);
 int size(list_t);
 int empty(list_t);
 list_t copy(list_t);

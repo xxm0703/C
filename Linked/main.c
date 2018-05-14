@@ -12,7 +12,9 @@ int main(){
 	printf("Index 1: %d Size: %d Empty: %d\n", get(l, 1), size(l), empty(l));
 	remove_after(&l, 0);
 	printf("%d %d %d\n", l2.head->value, l2.head->next->value, l2.head->next->next->value);
+	reverse(&l2);
 	printf("l: %d\n", l.head->value);
+	printf("%d %d %d\n", l2.head->value, l2.head->next->value, l2.head->next->next->value);
 	destroy(&l);
 	destroy(&l2);
 	return 0;
