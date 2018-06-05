@@ -1,5 +1,6 @@
 #include<stdio.h>
 #include<stdlib.h>
+#include<string.h>
 
 typedef struct bike_tire_t{
 	float diameter, weight, min_press, max_press;
@@ -12,12 +13,18 @@ typedef struct tire_stand_t{
 
 tire_stand_t read_tires(){
 	tire_stand_t stand = {NULL, 0};
-	printf("Space separate input: diameter weight min_pressure max_pressure\n");
+	printf("Space separate input ending with EOF: diameter weight min_pressure max_pressure\n");
 	bike_tire_t tire;
-	while(scanf("%f %f %f %f", &(tire.diameter), &(tire.weight), &(tire.min_press), &(tire.max_press)) == 4){
+	char s[20];
+	while(fgets(s, 20, stdin)){
+		tire.diameter = atof(strtok(s, " \n"));
+		tire.weight = atof(strtok(NULL, " \n"));
+		tire.min_press = atof(strtok(NULL, " \n"));
+		tire.max_press = atof(strtok(NULL, " \n"));
 		stand.tires = realloc(stand.tires, sizeof(bike_tire_t) * ++stand.count);
 		stand.tires[stand.count-1] = tire;
 	}
+	return stand;
 }
 
 int is_for_mountainbike(bike_tire_t tire){
@@ -36,7 +43,8 @@ stand.tires[i].diameter, stand.tires[i].weight, stand.tires[i].min_press);
 }
 
 int main(){
-	tire_stand_t stand = read_tires();
+	tire_stand_t stand;
+	stand = read_tires();
 	print_mountainbike_tires(stand);
 	return 0;
 }
